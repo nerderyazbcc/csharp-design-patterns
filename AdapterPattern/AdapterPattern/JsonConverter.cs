@@ -1,27 +1,20 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+
+using AdapterPattern.Entities;
+
+using Newtonsoft.Json;
 
 namespace AdapterPattern
 {
-    public class JsonConverter
+  public class JsonConverter
+  {
+    private IEnumerable<Manufacturer> _manufacturers;
+
+    public JsonConverter(IEnumerable<Manufacturer> manufacturers) => _manufacturers = manufacturers;
+
+    public string ConvertToJson()
     {
-        private IEnumerable<Manufacturer> _manufacturers;
-
-        public JsonConverter(IEnumerable<Manufacturer> manufacturers)
-        {
-            _manufacturers = manufacturers;
-        }
-
-        public void ConvertToJson()
-        {
-            var jsonManufacturers = JsonConvert.SerializeObject(_manufacturers, Formatting.Indented);
-
-            Console.WriteLine("\nPrinting JSON list\n");
-            Console.WriteLine(jsonManufacturers);
-        }
+      return JsonConvert.SerializeObject(_manufacturers, Formatting.Indented);
     }
+  }
 }

@@ -1,18 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using AdapterPattern.MakeBelieveExternalProvider;
 
 namespace AdapterPattern
 {
-    class Program
+  internal class Program
+  {
+    private static void Main()
     {
-        static void Main(string[] args)
-        {
-            var xmlConverter = new XmlConverter();
-            var adapter = new XmlToJsonAdapter(xmlConverter);
-            adapter.ConvertXmlToJson();
-        }
+      var xmlManufacturerDataIn = new UncleZebsWildAndCrazyManufacturerListing_API();
+      var adapter = new ManufacturerXmlToJsonAdapter(xmlManufacturerDataIn);
+
+      Console.WriteLine(adapter.RetrieveManufacturersAsJson());
+      Console.ReadLine();
     }
+  }
 }
