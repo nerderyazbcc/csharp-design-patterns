@@ -1,4 +1,4 @@
-﻿namespace AdapterPattern.Entities
+﻿namespace PatternsSampleDemo.Entities
 {
   public class Manufacturer
   {

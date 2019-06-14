@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using PatternsSampleDemo.Entities;
 
-using AdapterPattern.Entities;
+using System.Collections.Generic;
 
-namespace AdapterPattern.MakeBelieveExternalProvider
+namespace PatternsSampleDemo.MakeBelieveExternalProvider
 {
-  public class CrazyZebsInternalManufacturerRepo
+  public static class CrazyZebsInternalManufacturerRepo
   {
     public static List<Manufacturer> GetData() =>
        new List<Manufacturer>

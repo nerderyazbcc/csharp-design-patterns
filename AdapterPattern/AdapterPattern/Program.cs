@@ -1,14 +1,15 @@
-﻿using System;
+﻿using PatternsSampleDemo;
+using PatternsSampleDemo.MakeBelieveExternalProvider;
 
-using AdapterPattern.MakeBelieveExternalProvider;
+using System;
 
-namespace AdapterPattern
+namespace PatternsSample
 {
   internal class Program
   {
     private static void Main()
     {
-      var xmlManufacturerDataIn = new UncleZebsWildAndCrazyManufacturerListing_API();
+      var xmlManufacturerDataIn = new UncleZebsWildAndCrazyManufacturerListingAPIWrapper();
       var adapter = new ManufacturerXmlToJsonAdapter(xmlManufacturerDataIn);
 
       Console.WriteLine(adapter.RetrieveManufacturersAsJson());

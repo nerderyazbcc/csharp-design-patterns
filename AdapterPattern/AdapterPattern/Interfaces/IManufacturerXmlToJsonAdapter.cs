@@ -1,4 +1,4 @@
-﻿namespace AdapterPattern.Interfaces
+﻿namespace PatternsSampleDemo.Interfaces
 {
   public interface IManufacturerXmlToJsonAdapter
   {

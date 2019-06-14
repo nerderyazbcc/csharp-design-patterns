@@ -1,22 +1,23 @@
-﻿using System;
+﻿using PatternsSampleDemo.Entities;
+using PatternsSampleDemo.Interfaces;
+using PatternsSampleDemo.MakeBelieveExternalProvider;
+
+using System;
+using System.Collections.Generic;
 using System.Linq;
 
-using AdapterPattern.Entities;
-using AdapterPattern.Interfaces;
-using AdapterPattern.MakeBelieveExternalProvider;
-
-namespace AdapterPattern
+namespace PatternsSampleDemo
 {
   public class ManufacturerXmlToJsonAdapter : IManufacturerXmlToJsonAdapter
   {
-    private readonly UncleZebsWildAndCrazyManufacturerListing_API _manufacturerEndpoint;
+    private readonly UncleZebsWildAndCrazyManufacturerListingAPIWrapper _manufacturerEndpoint;
 
-    public ManufacturerXmlToJsonAdapter(UncleZebsWildAndCrazyManufacturerListing_API ManufacturerEndpoint) => 
+    public ManufacturerXmlToJsonAdapter(UncleZebsWildAndCrazyManufacturerListingAPIWrapper ManufacturerEndpoint) =>
                                               _manufacturerEndpoint = ManufacturerEndpoint;
 
     public string RetrieveManufacturersAsJson()
     {
-      var manufacturers = _manufacturerEndpoint.XML              .Element("Manufacturers")
+      IEnumerable<Manufacturer> manufacturers = _manufacturerEndpoint.GetXML().Element("Manufacturers")
               .Elements("Manufacturer")
               .Select(m => new Manufacturer
               {
