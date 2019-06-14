@@ -13,7 +13,7 @@ namespace PatternsSample
       var adapter = new ManufacturerXmlToJsonAdapter(xmlManufacturerDataIn);
 
       Console.WriteLine(adapter.RetrieveManufacturersAsJson());
-      Console.ReadLine();
+      _ = Console.ReadLine();
     }
   }
 }
