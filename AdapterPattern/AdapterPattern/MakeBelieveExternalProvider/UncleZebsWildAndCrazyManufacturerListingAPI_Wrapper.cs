@@ -22,7 +22,7 @@ namespace PatternsSampleDemo.MakeBelieveExternalProvider
       xElement.Add(xAttributes);
       xDocument.Add(xElement);
 
-      Console.WriteLine("This is your friendly external API returning your data in good ol' vintage XMl format\n" +
+      Console.WriteLine("This is your friendly external API returning your data in good ol' vintage XMl format!\n" +
                           "Enjoy!");
       Console.WriteLine(xDocument);
       _ = Console.ReadLine();
